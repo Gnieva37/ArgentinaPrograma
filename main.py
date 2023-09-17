@@ -12,7 +12,7 @@ from umqtt.robust import MQTTClient
 CLIENT_ID = ubinascii.hexlify(unique_id()).decode('utf-8')
 
 mqtt = MQTTClient(CLIENT_ID, SERVIDOR_MQTT,
-                  port=8883, keepalive=40, ssl=True)
+                  port=1883, keepalive=40)
 
 sw = Pin(23, Pin.IN)
 led = Pin(2, Pin.OUT)
@@ -33,7 +33,7 @@ def transmitir(pin):
     mqtt.publish(f"ap/{CLIENT_ID}",datos)
 
 timer1 = Timer(1)
-timer1.init(period=20000, mode=Timer.PERIODIC, callback=transmitir)
+timer1.init(period=60000, mode=Timer.PERIODIC, callback=transmitir)
 
 datos={}
 
