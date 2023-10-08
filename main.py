@@ -24,6 +24,7 @@ def sub_cb(topic, msg):
         led.value(0)
     if msg==b"encender":
         led.value(1)
+    mqtt.publish(f"ap/{CLIENT_ID}/estado",str(led.value()))    
 
 mqtt.set_callback(sub_cb)
 mqtt.connect()

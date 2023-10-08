@@ -1,0 +1,2 @@
+SSID="Telecentro-777c"
+PASS_WLAN=LRJU97G47VTA
